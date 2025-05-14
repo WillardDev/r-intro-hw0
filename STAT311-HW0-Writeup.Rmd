@@ -1,0 +1,111 @@
+---
+title: "Writeup Assignment 0"
+author: "Author"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+#DO NOT EDIT THIS CODE CHUNK
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Please complete the following:
+
+* Address any questions or code below.
+* Compile the document into a PDF file. 
+* The PDF file must be multiple pages - if your file is a single page, try compiling to an HTML, opening in your browser, and printing the page to a PDF.
+* Submit to Gradescope.
+* **Paginate individual questions correctly, selecting which pages each question pertains to, or your assignment will not be graded and will require resubmission.**
+
+
+## HW0 Programming Assignment
+
+For writeup assignments that build upon the programming assignments, you will need to execute some of the homework code within the RMarkdown file. **Copy all of your code from Assignment 0 into the block below.**
+
+```{r HW0Code}
+#Paste your entire HW0 Programming assignment code here
+## ## ## ## ## DO NOT MODIFY BELOW ## ## ## ## ## 
+sampleData1<-read.csv("SampleData.csv",header=FALSE)
+sampleData2<-matrix(20:28,nrow=3)
+## ## ## ## ## DO NOT MODIFY ABOVE ## ## ## ## ## 
+
+# PART 1
+# Create a vector of length 5 with values 1, 2, 3, 4, 7
+# Call it "myVector"
+myVector <- c(1, 2, 3, 4, 7)
+print("My Vector:")
+print(myVector)
+
+# PART 2
+# Create a string containing your name
+# Call it "myString"
+myString <- "John Doe"
+print("My String:")
+print(myString)
+
+# PART 3
+# Read the "Rule #1 - Resolving Gradescope Submission Issues"
+# post on EdStem and find the hidden value for HW0.
+# Call it "HW0P3" (This should be a numeric value)
+HW0P3 <- 724
+print("HW0P3 Value:")
+print(HW0P3)
+
+# PART 4
+# The following code will not run correctly; fix it
+# without changing the values or variable names.
+thisVariable <- pi^2
+thisVector <- c(thisVariable, thisVariable)
+print("This Variable:")
+print(thisVariable)
+print("This Vector:")
+print(thisVector)
+
+# PART 5
+# Create a function that takes a single variable consisting
+#  of a 3x3 matrix or dataframe (Called 'input' here), and 
+#  returns a vector of length 3 equal to the sum 
+#  of the rows of the matrix or data frame
+# Call it "myFunction"
+myFunction <- function(input){
+  result <- rowSums(input)
+  return(result)
+}
+print("My Function Definition:")
+print(myFunction)
+
+## ## ## ## ## DO NOT MODIFY BELOW ## ## ## ## ## 
+# If you have done part 5 correctly,
+# running the code below should return TRUE
+myResult1<-myFunction(sampleData1) # Saves results from your function
+all(myResult1==c(6,15,24)) # Returns true if correct
+myResult2<-myFunction(sampleData2) # Saves results from your function
+all(myResult2==c(69,72,75)) # Returns true if correct
+## ## ## ## ## DO NOT MODIFY ABOVE ## ## ## ## ##
+```
+
+## Including Graphics
+
+When importing data for writeup assignments you are free to change code that loads data, such as changing the file name or folder address. The code below imports a dataset about the number of rental bikes in use each hour for a random set of hours over a two year span. The data is saved in the data frame \verb|bikes|, under the variable name \verb|bikes$rentals|. Using the function \verb|hist(...)|, create a histogram of the bike rentals. Utilizing \verb|?hist|, find the optional function arguments to do the following:
+
+* Plot a histogram of the data
+* Plot a density, rather than frequency histogram
+* Change the main title of the plot to something more appropriate
+* Change the x axis of the plot to something more informative
+
+
+```{r HW0Plot}
+bikes<-read.csv("BikeRentals.csv")
+
+# Create a histogram of bike rentals with the requested modifications
+hist(bikes$rentals,
+     prob = TRUE,
+     main = "Distribution of Hourly Bike Rentals",
+     xlab = "Number of Bikes Rented per Hour",
+     col = "lightblue")
+
+```
+
